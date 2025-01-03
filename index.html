@@ -77,7 +77,9 @@
         </ul>
         <a href="mailto:saishrerevanker1359e@gmail.com" class="btn">Email Me</a>
     </section>
-
+    <div class="text-center mt-4">
+        <p>You have visited this page <span id="visit-count">0</span> times.</p>
+    </div>
     <footer>
         <p>&copy; 2025 Saishree Revonkar. All rights reserved.</p>
         <div class="footer-links">
@@ -85,5 +87,22 @@
         </div>
         <p>Developed with passion and dedication to creating seamless web experiences.</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const visitCountKey = 'visitCount';
+            let visitCount = localStorage.getItem(visitCountKey);
+
+            if (!visitCount) {
+                visitCount = 0;
+            } else {
+                visitCount = parseInt(visitCount, 10);
+            }
+
+            visitCount++;
+            localStorage.setItem(visitCountKey, visitCount);
+
+            document.getElementById('visit-count').textContent = visitCount;
+        });
+</script>
 </body>
 </html>
